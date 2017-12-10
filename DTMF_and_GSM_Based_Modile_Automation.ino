@@ -34,8 +34,8 @@
 # define FORWARD '2'
 # define RIGHT '6'
 # define LEFT '4'
-# define BACKWARD 8
-# define STOP 5
+# define BACKWARD '8'
+# define STOP '5'
 
 
 SoftwareSerial gsm_board(GSM_RX,GSM_TX);
@@ -45,6 +45,11 @@ int i=0,j=0,x=-1;
 char n;
 void gsm_initilaize();// used to inilitize the gsm and chk all its parameters
 void move(); // used to control motor outputs.
+void forward();
+void backward();
+void left();
+void right();
+void stop();
 
 void setup() {
   // put your setup code here, to run once:
@@ -54,10 +59,7 @@ void setup() {
   pinMode(LEFT_B,OUTPUT);
   pinMode(RIGHT_A,OUTPUT);
   pinMode(RIGHT_B,OUTPUT);
-  digitalWrite(LEFT_A,LOW);
-  digitalWrite(LEFT_B,LOW);
-  digitalWrite(RIGHT_A,LOW);
-  digitalWrite(RIGHT_B,LOW);
+  stop();
   gsm_initilaize();
 
 }
@@ -160,17 +162,67 @@ void gsm_initilaize()
 
 //////////////////////////////gsm inilitization ends/////////////////////////////
 
-/////////////////////relay begins///////////////////////////
+/////////////////////move begins///////////////////////////
 
 void move()
 {
   switch(n)
   {
-   case "2" :
-    forw
+   case FORWARD:
+    forward();
+    break;
+   case BACKWARD:
+    backward();
+    break;
+   case RIGHT:
+    right();
+    break;
+   case LEFT:
+    left();
+    break;
+   case STOP:
+    stop();
+    break;
   }
 }
 
-/////////////////////relay ends///////////////////////////
+/////////////////////move ends///////////////////////////
 
+/////////////////movement control function begins///////////////////
+void forward()
+{
+  digitalWrite(LEFT_A,LOW);
+  digitalWrite(LEFT_B,HIGH);
+  digitalWrite(RIGHT_A,HIGH);
+  digitalWrite(RIGHT_B,LOW);
+}
 
+void backward()
+{
+  digitalWrite(LEFT_A,HIGH);
+  digitalWrite(LEFT_B,LOW);
+  digitalWrite(RIGHT_A,LOW)
+  digitalWrite(RIGHT_B,HIGH);
+}
+
+void left()
+{
+  digitalWrite(LEFT_A,LOW);
+  digitalWrite(LEFT_B,HIGH);
+  digitalWrite(RIGHT_A,LOW);
+  digitalWrite(RIGHT_B,HIGH);
+}
+void right()
+{
+  digitalWrite(LEFT_A,HIGH);
+  digitalWrite(LEFT_B,LOW);
+  digitalWrite(RIGHT_A,HIGH);
+  digitalWrite(RIGHT_B,LOW);
+}
+void stop()
+{
+  digitalWrite(LEFT_A,LOW);
+  digitalWrite(LEFT_B,LOW);
+  digitalWrite(RIGHT_A,LOW);
+  digitalWrite(RIGHT_B,LOW);
+}
