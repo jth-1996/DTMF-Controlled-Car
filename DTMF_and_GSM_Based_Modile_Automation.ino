@@ -1,6 +1,5 @@
 /**************************************************************
- DTMF (mobile) based Home automation
-
+ DTMF CONTROLLED CAR
  Author : Jithin T; DEBUT LABS (jithin.1005@gmail.com)
  Authored on : 10 December 2017
 
@@ -41,11 +40,11 @@
 SoftwareSerial gsm_board(GSM_RX,GSM_TX);
 
 boolean call_flag=0;
-int i=0,j=0,x=-1;
+int i=0,x=-1;
 char n;
 void gsm_initilaize();// used to inilitize the gsm and chk all its parameters
 void move(); // used to control motor outputs.
-void forward();
+void forward(); //functions to set pins to control car movement
 void backward();
 void left();
 void right();
@@ -226,3 +225,4 @@ void stop()
   digitalWrite(RIGHT_A,LOW);
   digitalWrite(RIGHT_B,LOW);
 }
+/////////////////movement control function ends///////////////////
