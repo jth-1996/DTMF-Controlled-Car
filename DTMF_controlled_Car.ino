@@ -24,10 +24,10 @@
 
 // Defining interfacing pins for Motor Control (ie pins to L293D)
 // Code is designed such that the two motor terminals are named A & B. and is assumed that the motor will rotate clock wise when A terminal is HIGH and B is LOW
-# define LEFT_A 8 // Connect the A terminal of LEFT motor to Digital Pin 8 of Arduino
-# define LEFT_B 9
-# define RIGHT_A 10
-# define RIGHT_B 11
+# define LEFT_A 4 // Connect the A terminal of LEFT motor to Digital Pin 8 of Arduino
+# define LEFT_B 5
+# define RIGHT_A 6
+# define RIGHT_B 7
 
 // Defining the key press to drive the car.
 # define FORWARD '2'
