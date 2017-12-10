@@ -93,7 +93,7 @@ void loop() {
     {
       n=gsm_data[x+6];
       Serial.println(n);
-      move(n); // call motor control function to initiate the change demanded by controller
+      move(); // call motor control function to initiate the change demanded by controller
     }
     x=gsm_data.indexOf("NO CARRIER"); // Checking whether call is still connected or not
     if(x>-1)
@@ -200,7 +200,7 @@ void backward()
 {
   digitalWrite(LEFT_A,HIGH);
   digitalWrite(LEFT_B,LOW);
-  digitalWrite(RIGHT_A,LOW)
+  digitalWrite(RIGHT_A,LOW);
   digitalWrite(RIGHT_B,HIGH);
 }
 
